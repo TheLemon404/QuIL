@@ -12,28 +12,32 @@
 #endif //QUIL_H
 
 //types
-enum QuilKeyState {
+enum QuilInputState {
     RELEASED,
     JUST_RELEASED,
     PRESSED,
     JUST_PRESSED,
 };
 
-struct QuilState {
+struct QuilGlobalState {
     GLFWwindow* currentGLFWWindow;
 };
 
 //managing state and code lifetime
 void quilCreateWindowContext(GLFWwindow* currentGLFWWindow);
-void quilInitializeInputStates();
-void quilPollGLFWInput();
-void quilTerminateGLFW();
 
-//usable functions
-enum QuilKeyState quilGetKeyState(int key);
-const char* quilKeyToString(enum QuilKeyState key);
+//input state
+enum QuilInputState quilGetKeyState(int key);
+enum QuilInputState quilGetMouseButtonState(int button);
+
+const char* quilKeyToString(enum QuilInputState key);
 
 int quilIsKeyReleased(int key);
 int quilIsKeyJustReleased(int key);
 int quilIsKeyPressed(int key);
 int quilIsKeyJustPressed(int key);
+
+int quilIsMouseButtonReleased(int button);
+int quilIsMouseButtonJustReleased(int button);
+int quilIsMouseButtonPressed(int button);
+int quilIsMouseButtonJustPressed(int button);

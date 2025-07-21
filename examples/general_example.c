@@ -34,9 +34,12 @@ int main() {
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
-        if (quilIsKeyPressed(GLFW_KEY_SPACE)) {
-            printf("space");
+        if (quilIsMouseButtonJustPressed(GLFW_MOUSE_BUTTON_1)) {
+            printf("mouse button 1 pressed\n");
         }
+
+        enum QuilInputState spaceKeyState = quilGetKeyState(GLFW_KEY_SPACE);
+        printf("%s\n", quilKeyToString(spaceKeyState));
 
         /* Poll for and process events */
         glfwPollEvents();

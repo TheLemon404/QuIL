@@ -4,32 +4,15 @@
 
 #include "quil.h"
 
-struct QuilState globalState = {};
+struct QuilGlobalState globalState = {};
 int GLFWKeys[105];
-
-#include <stdio.h>
-#include <stdlib.h>
+int GLFWMouseButtons[8];
 
 void quilCreateWindowContext(GLFWwindow* currentGLFWWindow) {
 	globalState.currentGLFWWindow = currentGLFWWindow;
 }
 
-void quilInitializeInputStates() {
-	// This could include setting up key states, mouse states, etc.
-	// Initialize input states
-}
-
-void quilPollGLFWInput() {
-	// Poll for GLFW events
-	glfwPollEvents();
-}
-
-void quilTerminateGLFW() {
-	// Terminate GLFW
-	glfwTerminate();
-}
-
-enum QuilKeyState quilGetKeyState(int key) {
+enum QuilInputState quilGetKeyState(int key) {
 	int result = RELEASED;
 	int GLFWKeyState = glfwGetKey(globalState.currentGLFWWindow, key);
 
@@ -58,7 +41,36 @@ enum QuilKeyState quilGetKeyState(int key) {
 	return result;
 }
 
-const char* quilKeyToString(enum QuilKeyState key) {
+enum QuilInputState quilGetMouseButtonState(int button) {
+	int result = RELEASED;
+	int GLFWMouseButtonState = glfwGetMouseButton(globalState.currentGLFWWindow, button);
+
+	switch (GLFWMouseButtonState) {
+		case GLFW_PRESS:
+			if (GLFWMouseButtons[button] == GLFW_PRESS) {
+				result = PRESSED;
+			}
+			else if (GLFWMouseButtons[button] == GLFW_RELEASE) {
+				result = JUST_PRESSED;
+			}
+			break;
+		case GLFW_RELEASE:
+			if (GLFWMouseButtons[button] == GLFW_RELEASE) {
+				result = RELEASED;
+			}
+			else if (GLFWMouseButtons[button] == GLFW_PRESS) {
+				result = JUST_RELEASED;
+			}
+			break;
+		default:
+			break;
+	}
+
+	GLFWMouseButtons[button] = GLFWMouseButtonState;
+	return result;
+}
+
+const char* quilKeyToString(enum QuilInputState key) {
 	switch (key) {
 		case PRESSED:
 			return "PRESSED";
@@ -87,4 +99,20 @@ int quilIsKeyPressed(int key) {
 
 int quilIsKeyJustPressed(int key) {
 	return quilGetKeyState(key) == JUST_PRESSED;
+}
+
+int quilIsMouseButtonReleased(int button) {
+	return quilGetMouseButtonState(button) == RELEASED;
+}
+
+int quilIsMouseButtonJustReleased(int button) {
+	return quilGetMouseButtonState(button) == JUST_RELEASED;
+}
+
+int quilIsMouseButtonPressed(int button) {
+	return quilGetMouseButtonState(button) == PRESSED;
+}
+
+int quilIsMouseButtonJustPressed(int button) {
+	return quilGetMouseButtonState(button) == JUST_PRESSED;
 }
