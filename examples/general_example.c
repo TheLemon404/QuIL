@@ -1,7 +1,3 @@
-//
-// Created by Osprey on 7/21/2025.
-//
-
 #include <stdio.h>
 #include <GLFW/glfw3.h>
 #include "quil.h"

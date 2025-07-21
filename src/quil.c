@@ -1,7 +1,3 @@
-//
-// Created by Osprey on 7/21/2025.
-//
-
 #include "quil.h"
 
 struct QuilGlobalState globalState = {};

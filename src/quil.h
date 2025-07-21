@@ -1,7 +1,3 @@
-//
-// Created by Osprey on 7/21/2025.
-//
-
 #pragma once
 
 #ifndef QUIL_H
