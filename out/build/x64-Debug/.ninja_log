@@ -1,0 +1,24 @@
+# ninja log v6
+77	437	7748215259316590	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/win32_module.c.obj	bb6979c170f80dfc
+82	445	7748215259357486	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/win32_time.c.obj	710d8deeef01508f
+68	451	7748215259226575	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/null_window.c.obj	6242350e20478b91
+112	541	7748215259666766	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/wgl_context.c.obj	31fcb6586131c590
+107	522	7748215259614577	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/win32_window.c.obj	29573d689adfebc5
+63	461	7748215259179697	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/null_monitor.c.obj	6449b8dcb2694a09
+54	476	7748215259078417	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/osmesa_context.c.obj	e90ba8bca5e00415
+33	457	7748215258868133	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/platform.c.obj	a7261f7460e13469
+58	466	7748215259129692	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/null_init.c.obj	6c7225ce105ca00a
+43	469	7748215258973333	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/window.c.obj	4487c7dcfd877423
+87	473	7748215259417498	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/win32_thread.c.obj	6a91e4f0de4f44d1
+38	479	7748215258923188	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/vulkan.c.obj	a8c71ed349ab46c7
+14	482	7748215258684454	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/context.c.obj	3ac1e0bc6b730042
+73	485	7748215259266563	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/null_joystick.c.obj	3f51c5720e7ea334
+49	488	7748215259028450	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/egl_context.c.obj	459f106f736ad684
+20	492	7748215258745846	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/init.c.obj	65aa6658ac015cd7
+28	495	7748215258828128	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/monitor.c.obj	68ddfb7fcff0078
+24	694	7748215258785843	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/input.c.obj	51408e06feae833d
+92	498	7748215259459503	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/win32_init.c.obj	3ca75a7ed6135ba1
+97	502	7748215259514529	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/win32_joystick.c.obj	41d1a96612f39dd2
+102	561	7748215259564596	dependencies/glfw-3.4/src/CMakeFiles/glfw.dir/win32_monitor.c.obj	6738b93e737a8f5d
+694	747	7748215265486528	dependencies/glfw-3.4/src/glfw3.lib	398bda6beee89f72
+747	781	7748215266014752	QuIL.lib	91ac9afcbb19ea65
