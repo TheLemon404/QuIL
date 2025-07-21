@@ -9,6 +9,8 @@ Oftentimes when writing a project containing keyboard and mouse input, I find my
 
 ## Basic Input State Usage
 ```c++
+
+int main() {
     GLFWwindow* window;
     glfwInit();
     window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
@@ -38,4 +40,5 @@ Oftentimes when writing a project containing keyboard and mouse input, I find my
         enum QuilInputState spaceKeyState = quilGetKeyState(GLFW_KEY_SPACE);
         printf("%s\n", quilKeyToString(spaceKeyState));
     }
+}
 ```
