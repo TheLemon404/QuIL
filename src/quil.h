@@ -9,10 +9,10 @@
 
 //types
 enum QuilInputState {
-    RELEASED,
-    JUST_RELEASED,
-    PRESSED,
-    JUST_PRESSED,
+    QUIL_RELEASED,
+    QUIL_JUST_RELEASED,
+    QUIL_PRESSED,
+    QUIL_JUST_PRESSED,
 };
 
 struct QuilCallbackCondition {

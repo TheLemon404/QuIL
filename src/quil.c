@@ -13,24 +13,24 @@ void quilCreateWindowContext(GLFWwindow* currentGLFWWindow) {
 }
 
 enum QuilInputState quilGetKeyState(int key) {
-	int result = RELEASED;
+	int result = QUIL_RELEASED;
 	int GLFWKeyState = glfwGetKey(globalState.currentGLFWWindow, key);
 
 	switch (GLFWKeyState) {
 		case GLFW_PRESS:
 			if (GLFWKeys[key] == GLFW_PRESS) {
-				result = PRESSED;
+				result = QUIL_PRESSED;
 			}
 			else if (GLFWKeys[key] == GLFW_RELEASE) {
-				result = JUST_PRESSED;
+				result = QUIL_JUST_PRESSED;
 			}
 			break;
 		case GLFW_RELEASE:
 			if (GLFWKeys[key] == GLFW_RELEASE) {
-				result = RELEASED;
+				result = QUIL_RELEASED;
 			}
 			else if (GLFWKeys[key] == GLFW_PRESS) {
-				result = JUST_RELEASED;
+				result = QUIL_JUST_RELEASED;
 			}
 			break;
 		default:
@@ -42,24 +42,24 @@ enum QuilInputState quilGetKeyState(int key) {
 }
 
 enum QuilInputState quilGetMouseButtonState(int button) {
-	int result = RELEASED;
+	int result = QUIL_RELEASED;
 	int GLFWMouseButtonState = glfwGetMouseButton(globalState.currentGLFWWindow, button);
 
 	switch (GLFWMouseButtonState) {
 		case GLFW_PRESS:
 			if (GLFWMouseButtons[button] == GLFW_PRESS) {
-				result = PRESSED;
+				result = QUIL_PRESSED;
 			}
 			else if (GLFWMouseButtons[button] == GLFW_RELEASE) {
-				result = JUST_PRESSED;
+				result = QUIL_JUST_PRESSED;
 			}
 			break;
 		case GLFW_RELEASE:
 			if (GLFWMouseButtons[button] == GLFW_RELEASE) {
-				result = RELEASED;
+				result = QUIL_RELEASED;
 			}
 			else if (GLFWMouseButtons[button] == GLFW_PRESS) {
-				result = JUST_RELEASED;
+				result = QUIL_JUST_RELEASED;
 			}
 			break;
 		default:
@@ -72,13 +72,13 @@ enum QuilInputState quilGetMouseButtonState(int button) {
 
 const char* quilKeyToString(enum QuilInputState key) {
 	switch (key) {
-		case PRESSED:
+		case QUIL_PRESSED:
 			return "PRESSED";
-		case JUST_PRESSED:
+		case QUIL_JUST_PRESSED:
 			return "JUST_PRESSED";
-		case RELEASED:
+		case QUIL_RELEASED:
 			return "RELEASED";
-		case JUST_RELEASED:
+		case QUIL_JUST_RELEASED:
 			return "JUST_RELEASED";
 		default:
 			return "UNKNOWN_KEY_STATE";
@@ -86,35 +86,35 @@ const char* quilKeyToString(enum QuilInputState key) {
 }
 
 int quilIsKeyReleased(int key) {
-	return quilGetKeyState(key) == RELEASED;
+	return quilGetKeyState(key) == QUIL_RELEASED;
 }
 
 int quilIsKeyJustReleased(int key) {
-	return quilGetKeyState(key) == JUST_RELEASED;
+	return quilGetKeyState(key) == QUIL_JUST_RELEASED;
 }
 
 int quilIsKeyPressed(int key) {
-	return quilGetKeyState(key) == PRESSED;
+	return quilGetKeyState(key) == QUIL_PRESSED;
 }
 
 int quilIsKeyJustPressed(int key) {
-	return quilGetKeyState(key) == JUST_PRESSED;
+	return quilGetKeyState(key) == QUIL_JUST_PRESSED;
 }
 
 int quilIsMouseButtonReleased(int button) {
-	return quilGetMouseButtonState(button) == RELEASED;
+	return quilGetMouseButtonState(button) == QUIL_RELEASED;
 }
 
 int quilIsMouseButtonJustReleased(int button) {
-	return quilGetMouseButtonState(button) == JUST_RELEASED;
+	return quilGetMouseButtonState(button) == QUIL_JUST_RELEASED;
 }
 
 int quilIsMouseButtonPressed(int button) {
-	return quilGetMouseButtonState(button) == PRESSED;
+	return quilGetMouseButtonState(button) == QUIL_PRESSED;
 }
 
 int quilIsMouseButtonJustPressed(int button) {
-	return quilGetMouseButtonState(button) == JUST_PRESSED;
+	return quilGetMouseButtonState(button) == QUIL_JUST_PRESSED;
 }
 
 int quilAddKeyCallback(int key, enum QuilInputState inputState, void (*callback)()) {
