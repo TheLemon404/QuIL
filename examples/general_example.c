@@ -2,6 +2,14 @@
 #include <GLFW/glfw3.h>
 #include "quil.h"
 
+void keyCallback() {
+    printf("key\n");
+}
+
+void mouseCallback() {
+    printf("mouse\n");
+}
+
 int main() {
     printf("general_example");
 
@@ -24,18 +32,17 @@ int main() {
 
     quilCreateWindowContext(window);
 
+    quilAddKeyCallback(GLFW_KEY_R, JUST_PRESSED, &keyCallback);
+    quilAddMouseButtonCallback(GLFW_MOUSE_BUTTON_1, JUST_RELEASED, &mouseCallback);
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
-        if (quilIsMouseButtonJustPressed(GLFW_MOUSE_BUTTON_1)) {
-            printf("mouse button 1 pressed\n");
-        }
-
-        enum QuilInputState spaceKeyState = quilGetKeyState(GLFW_KEY_SPACE);
-        printf("%s\n", quilKeyToString(spaceKeyState));
+        //this function must be called each frame to check for callbacks
+        quilPollCallbacks();
 
         /* Poll for and process events */
         glfwPollEvents();
