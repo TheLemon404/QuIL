@@ -32,17 +32,31 @@ int main() {
 
     quilCreateWindowContext(window);
 
-    quilAddKeyCallback(GLFW_KEY_R, JUST_PRESSED, &keyCallback);
-    quilAddMouseButtonCallback(GLFW_MOUSE_BUTTON_1, JUST_RELEASED, &mouseCallback);
-
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
-        //this function must be called each frame to check for callbacks
-        quilPollCallbacks();
+        if (quilIsMouseButtonJustPressed(GLFW_MOUSE_BUTTON_1)) {
+            printf("mouse button 1 just pressed\n");
+        }
+
+        if (quilIsMouseButtonPressed(GLFW_MOUSE_BUTTON_1)) {
+            printf("mouse button 1 pressed\n");
+        }
+
+        if (quilIsKeyJustReleased(GLFW_KEY_W)) {
+            printf("key w just released\n");
+        }
+
+        if (quilIsKeyReleased(GLFW_KEY_W)) {
+            printf("key w released\n");
+        }
+
+        // this code will print the current key state (PRESSED, JUST_PRESSED, RELEASED, JUST_RELEASED) to the console every frame
+        enum QuilInputState spaceKeyState = quilGetKeyState(GLFW_KEY_SPACE);
+        printf("%s\n", quilKeyToString(spaceKeyState));
 
         /* Poll for and process events */
         glfwPollEvents();

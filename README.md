@@ -8,6 +8,9 @@ Oftentimes when writing a project containing keyboard and mouse input, I find my
 * input state checking functionality through reading the current state of a key, or simply checking isKeyDown(key)
 * bind functions with no parameters as callbacks to key and mouse button states
 
+## Limitations:
+* you can only bind 1 callback per key. You are free to have multiple keys bound the the same callback, but each key can only be bound to 1 callback.
+
 ## Basic Input State Usage
 ```c++
 int main() {
@@ -28,11 +31,11 @@ int main() {
             // custom logic
         }
         
-        if (quilIsMouseButtonJustReleased(GLFW_MOUSE_BUTTON_1)) {
+        if (quilIsKeyJustReleased(GLFW_KEY_W)) {
             // custom logic
         }
         
-        if (quilIsMouseButtonReleased(GLFW_MOUSE_BUTTON_1)) {
+        if (quilIsKeyReleased(GLFW_KEY_W)) {
             // custom logic
         }
         
@@ -59,8 +62,8 @@ int main() {
     glfwMakeContextCurrent(window);
 
     quilCreateWindowContext(window);
-    quilAddKeyCallback(GLFW_KEY_R, JUST_PRESSED, &keyCallback);
-    quilAddMouseButtonCallback(GLFW_MOUSE_BUTTON_1, JUST_RELEASED, &mouseCallback);
+    quilAddKeyCallback(GLFW_KEY_R, QUIL_JUST_PRESSED, &keyCallback);
+    quilAddMouseButtonCallback(GLFW_MOUSE_BUTTON_1, QUIL_JUST_RELEASED, &mouseCallback);
     
     while (!glfwWindowShouldClose(window))
     {
