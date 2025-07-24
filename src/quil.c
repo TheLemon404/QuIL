@@ -41,7 +41,7 @@ QuilInputState quilGetKeyState(int key) {
 	return result;
 }
 
-enum QuilInputState quilGetMouseButtonState(int button) {
+QuilInputState quilGetMouseButtonState(int button) {
 	int result = QUIL_RELEASED;
 	int GLFWMouseButtonState = glfwGetMouseButton(globalState.currentGLFWWindow, button);
 
@@ -117,12 +117,12 @@ int quilIsMouseButtonJustPressed(int button) {
 	return quilGetMouseButtonState(button) == QUIL_JUST_PRESSED;
 }
 
-int quilAddKeyCallback(int key, QuilInputState inputState, void (*callback)()) {
+void quilAddKeyCallback(int key, QuilInputState inputState, void (*callback)()) {
 	QuilCallback callbackCondition = {inputState, callback};
 	keyCallbacks[key] = callbackCondition;
 }
 
-int quilAddMouseButtonCallback(int button, QuilInputState inputState, void (*callback)()) {
+void quilAddMouseButtonCallback(int button, QuilInputState inputState, void (*callback)()) {
 	QuilCallback callbackCondition = {inputState, callback};
 	mouseButtonCallbacks[button] = callbackCondition;
 }

@@ -45,6 +45,6 @@ int quilIsMouseButtonPressed(int button);
 int quilIsMouseButtonJustPressed(int button);
 
 //callbacks
-int quilAddKeyCallback(int key, QuilInputState inputState, void (*callback)());
-int quilAddMouseButtonCallback(int mouseButton, QuilInputState inputState, void (*callback)());
+void quilAddKeyCallback(int key, QuilInputState inputState, void (*callback)());
+void quilAddMouseButtonCallback(int mouseButton, QuilInputState inputState, void (*callback)());
 void quilPollCallbacks();
