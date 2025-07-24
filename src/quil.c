@@ -2,17 +2,17 @@
 
 #include <stdlib.h>
 
-struct QuilGlobalState globalState = {};
+QuilGlobalState globalState = {};
 int GLFWKeys[349];
-struct QuilCallbackCondition keyCallbacks[349];
+QuilCallback keyCallbacks[349];
 int GLFWMouseButtons[8];
-struct QuilCallbackCondition mouseButtonCallbacks[8];
+QuilCallback mouseButtonCallbacks[8];
 
 void quilCreateWindowContext(GLFWwindow* currentGLFWWindow) {
 	globalState.currentGLFWWindow = currentGLFWWindow;
 }
 
-enum QuilInputState quilGetKeyState(int key) {
+QuilInputState quilGetKeyState(int key) {
 	int result = QUIL_RELEASED;
 	int GLFWKeyState = glfwGetKey(globalState.currentGLFWWindow, key);
 
@@ -70,7 +70,7 @@ enum QuilInputState quilGetMouseButtonState(int button) {
 	return result;
 }
 
-const char* quilKeyToString(enum QuilInputState key) {
+const char* quilKeyToString(QuilInputState key) {
 	switch (key) {
 		case QUIL_PRESSED:
 			return "PRESSED";
@@ -117,13 +117,13 @@ int quilIsMouseButtonJustPressed(int button) {
 	return quilGetMouseButtonState(button) == QUIL_JUST_PRESSED;
 }
 
-int quilAddKeyCallback(int key, enum QuilInputState inputState, void (*callback)()) {
-	struct QuilCallbackCondition callbackCondition = {inputState, callback};
+int quilAddKeyCallback(int key, QuilInputState inputState, void (*callback)()) {
+	QuilCallback callbackCondition = {inputState, callback};
 	keyCallbacks[key] = callbackCondition;
 }
 
-int quilAddMouseButtonCallback(int button, enum QuilInputState inputState, void (*callback)()) {
-	struct QuilCallbackCondition callbackCondition = {inputState, callback};
+int quilAddMouseButtonCallback(int button, QuilInputState inputState, void (*callback)()) {
+	QuilCallback callbackCondition = {inputState, callback};
 	mouseButtonCallbacks[button] = callbackCondition;
 }
 

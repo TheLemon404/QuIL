@@ -55,7 +55,7 @@ int main() {
         }
 
         // this code will print the current key state (PRESSED, JUST_PRESSED, RELEASED, JUST_RELEASED) to the console every frame
-        enum QuilInputState spaceKeyState = quilGetKeyState(GLFW_KEY_SPACE);
+        QuilInputState spaceKeyState = quilGetKeyState(GLFW_KEY_SPACE);
         printf("%s\n", quilKeyToString(spaceKeyState));
 
         /* Poll for and process events */

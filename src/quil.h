@@ -8,30 +8,30 @@
 #endif //QUIL_H
 
 //types
-enum QuilInputState {
+typedef enum QuilInputState {
     QUIL_RELEASED,
     QUIL_JUST_RELEASED,
     QUIL_PRESSED,
     QUIL_JUST_PRESSED,
-};
+} QuilInputState;
 
-struct QuilCallbackCondition {
-    enum QuilInputState inputState;
+typedef struct QuilCallback {
+    QuilInputState inputState;
     void (*callback)();
-};
+} QuilCallback;
 
-struct QuilGlobalState {
+typedef struct QuilGlobalState {
     GLFWwindow* currentGLFWWindow;
-};
+} QuilGlobalState;
 
 //managing state and code lifetime
 void quilCreateWindowContext(GLFWwindow* currentGLFWWindow);
 
 //input state
-enum QuilInputState quilGetKeyState(int key);
-enum QuilInputState quilGetMouseButtonState(int button);
+QuilInputState quilGetKeyState(int key);
+QuilInputState quilGetMouseButtonState(int button);
 
-const char* quilKeyToString(enum QuilInputState key);
+const char* quilKeyToString(QuilInputState key);
 
 //basic input functionality
 int quilIsKeyReleased(int key);
@@ -45,6 +45,6 @@ int quilIsMouseButtonPressed(int button);
 int quilIsMouseButtonJustPressed(int button);
 
 //callbacks
-int quilAddKeyCallback(int key, enum QuilInputState inputState, void (*callback)());
-int quilAddMouseButtonCallback(int mouseButton, enum QuilInputState inputState, void (*callback)());
+int quilAddKeyCallback(int key, QuilInputState inputState, void (*callback)());
+int quilAddMouseButtonCallback(int mouseButton, QuilInputState inputState, void (*callback)());
 void quilPollCallbacks();
