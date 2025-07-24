@@ -7,6 +7,10 @@
 
 #endif //QUIL_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //types
 typedef enum QuilInputState {
     QUIL_RELEASED,
@@ -48,3 +52,7 @@ int quilIsMouseButtonJustPressed(int button);
 void quilAddKeyCallback(int key, QuilInputState inputState, void (*callback)());
 void quilAddMouseButtonCallback(int mouseButton, QuilInputState inputState, void (*callback)());
 void quilPollCallbacks();
+
+#ifdef __cplusplus
+}
+#endif
