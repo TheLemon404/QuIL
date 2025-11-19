@@ -1,7 +1,7 @@
 # QuIL
 ### Quick Input Layer
 
-Oftentimes when writing a project containing keyboard and mouse input, I find myself rewriting the same code over and over again between projects. QuIL is meant to be an extremely small code layer that sits on top of GLFW and impliments the basic input logic needed to get a prototype project off the ground. Using QuIL, you can have out of the box input functionality with zero setup, making early project development a tiny bit easier.
+Oftentimes, when writing a project containing keyboard and mouse input, I find myself rewriting the same code over and over again between projects. QuIL is meant to be an extremely small code layer that sits on top of GLFW and implements the basic input logic needed to get a prototype project off the ground. Using QuIL, you can have out-of-the-box input functionality with zero setup, making early project development a tiny bit easier.
 
 ## Features:
 * QUIL_PRESSED, QUIL_JUST_PRESSED, QUIL_RELEASED, QUIL_JUST_RELEASED input states for keyboard and mouse
@@ -9,7 +9,7 @@ Oftentimes when writing a project containing keyboard and mouse input, I find my
 * bind functions with no parameters as callbacks to key and mouse button states
 
 ## Limitations:
-* you can only bind 1 callback per key. You are free to have multiple keys bound the the same callback, but each key can only be bound to 1 callback.
+* You can only bind 1 callback per key. You are free to have multiple keys bound to the same callback, but each key can only be bound to 1 callback.
 
 ## Basic Input State Usage
 ```c++
